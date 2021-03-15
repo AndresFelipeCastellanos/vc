@@ -9,12 +9,16 @@ function preload(){
 function setup(){
     createCanvas(800,600);
     image(baseImg, 0, 0, width, height);
-    toNegative(baseImg, 400, 0, width, height);
-    toGray(baseImg, 0, 300, width, height);
+    toNegative(baseImg);
+    image(baseImg, 400, 0, width, height);
+    toGray(baseImg);
+    image(baseImg, 400, 300, width, height);
+    toNegative(baseImg);
+    image(baseImg, 0, 300, width, height);
 }
 
 /*Set the inverted colors for an image*/
-function toNegative(img, posX, posY, width, height){
+function toNegative(img){
     img.loadPixels();
     for (let i = 0; i < 4 * img.width * img.height; i += 4) {
         img.pixels[i] = 255 - img.pixels[i];
@@ -23,11 +27,10 @@ function toNegative(img, posX, posY, width, height){
         img.pixels[i + 3] = img.pixels[i + 3];
     }
     img.updatePixels();
-    image(img,posX,posY,width,height);
 };
 
 /*Set the grayscale for an image*/
-function toGray(img, posX, posY, width, height){
+function toGray(img){
     img.loadPixels();
     let grayColor;
     for (let i = 0; i < 4 * img.width * img.height; i += 4) {
@@ -39,5 +42,4 @@ function toGray(img, posX, posY, width, height){
         img.pixels[i + 3] = img.pixels[i + 3];
     }
     img.updatePixels();
-    image(img,posX,posY,width,height);
 };
