@@ -1,6 +1,6 @@
 let baseImg;
-let width = 400;
-let height = 300;
+const width = 400;
+const height = 300;
 
 function preload(){
     baseImg = loadImage("/vc/docs/sketches/monte-fuji.jpg","");
